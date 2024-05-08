@@ -18,17 +18,6 @@ def lg_checker(text):
     else:
         return 'neither'
 
-## NAMED ENTITY RECOGNITION ####################################################
-
-tokenizer = AutoTokenizer.from_pretrained("Babelscape/wikineural-multilingual-ner")
-model = AutoModelForTokenClassification.from_pretrained("Babelscape/wikineural-multilingual-ner")
-
-nlp = pipeline("ner", model=model, tokenizer=tokenizer, grouped_entities=True)
-
-def ner_check(text):
-  res = nlp(text)
-  return res
-
 # DATA CLEANING ################################################################
 
 with open('message_1.json', 'r', encoding='utf-8') as file:
